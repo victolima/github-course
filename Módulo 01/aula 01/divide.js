@@ -12,7 +12,7 @@ const divide = (y) => (x) => {
 
    	while (result > 0) {
         result = sub(result)
-        cont++
+        add(cont++)
     }
 
     return cont
