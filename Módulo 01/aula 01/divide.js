@@ -1,21 +1,20 @@
-const inverse = (x) => x * -1
+const inverse = ( x ) => x *- 1
 
-const add = (y) => (x) => x + y
-const subtract = (y) => (x) => add(inverse(y))(x)
+const add = ( y ) => ( x ) => x + y
+const substract = ( y ) => ( x ) => add( inverse( y ) )( x )
 
-const divide = (y) => (x) => {
+const divide = ( y ) => ( x ) => {
+    let result = 0;
 
-    let result = y
-    let cont = 0
+    const sub = substract( x )
+    const cont = add(1)
 
-    const sub = subtract(x)
+    while ( y >= x ) {
+        result = cont( result )
+        y = sub( y )
 
-   	while (result > 0) {
-        result = sub(result)
-        add(cont++)
     }
-
-    return cont
+    return result;
 }
 
 console.log('15 / 3 =', divide(15)(3))
